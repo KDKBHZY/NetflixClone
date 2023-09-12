@@ -9,7 +9,7 @@ import UIKit
 
 class SearchResultsViewController: UIViewController {
 
-    private let titles:[Title] = [Title]()
+    private var titles:[Title] = [Title]()
     private let searchResultCollectionView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width/3-10, height: 200)
@@ -31,18 +31,28 @@ class SearchResultsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         searchResultCollectionView.frame = view.bounds
     }
+    
+    public func configureTitle(with titles:[Title]){
+        self.titles = titles
+        DispatchQueue.main.async {
+            [weak self] in
+            self?.searchResultCollectionView.reloadData()
+        }
+    }
+    
 }
 
 extension SearchResultsViewController:UICollectionViewDataSource,UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return titles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else{
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .blue
+        let title = titles[indexPath.row]
+        cell.configure(with: title.poster_path ?? "")
         return cell
     }
     
