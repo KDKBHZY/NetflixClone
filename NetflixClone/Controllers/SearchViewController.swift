@@ -95,7 +95,6 @@ extension SearchViewController:UISearchResultsUpdating{
             return
         }
         APICaller.shared.search(with: query) { result in
-            
                 switch result{
                 case .success(let titles):
                     resultController.configureTitle(with: titles)
@@ -103,11 +102,6 @@ extension SearchViewController:UISearchResultsUpdating{
                     print(err.localizedDescription)
                     
                 }
-            
-                
-            
         }
     }
-    
-    
 }
