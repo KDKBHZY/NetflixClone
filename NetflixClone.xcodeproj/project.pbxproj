@@ -27,6 +27,8 @@
 		062EFF0D2AAFCF4B009310D2 /* TitleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF0C2AAFCF4B009310D2 /* TitleViewModel.swift */; };
 		062EFF0F2AB0D207009310D2 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF0E2AB0D207009310D2 /* SearchResultsViewController.swift */; };
 		062EFF112AB0F5AE009310D2 /* YoutubeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF102AB0F5AE009310D2 /* YoutubeResponse.swift */; };
+		062EFF132AB3ACEB009310D2 /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF122AB3ACEB009310D2 /* TitlePreviewViewController.swift */; };
+		062EFF152AB3B2F1009310D2 /* TitlePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF142AB3B2F1009310D2 /* TitlePreviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		062EFF0C2AAFCF4B009310D2 /* TitleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewModel.swift; sourceTree = "<group>"; };
 		062EFF0E2AB0D207009310D2 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		062EFF102AB0F5AE009310D2 /* YoutubeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeResponse.swift; sourceTree = "<group>"; };
+		062EFF122AB3ACEB009310D2 /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
+		062EFF142AB3B2F1009310D2 /* TitlePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +112,7 @@
 				062EFEF02AABCC10009310D2 /* SearchViewController.swift */,
 				062EFEF22AABCC36009310D2 /* DownloadViewController.swift */,
 				062EFF0E2AB0D207009310D2 /* SearchResultsViewController.swift */,
+				062EFF122AB3ACEB009310D2 /* TitlePreviewViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				062EFF0C2AAFCF4B009310D2 /* TitleViewModel.swift */,
+				062EFF142AB3B2F1009310D2 /* TitlePreviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -232,8 +238,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				062EFF152AB3B2F1009310D2 /* TitlePreviewViewModel.swift in Sources */,
 				062EFF0B2AAFC962009310D2 /* UpcomingTableViewCell.swift in Sources */,
 				062EFEF12AABCC10009310D2 /* SearchViewController.swift in Sources */,
+				062EFF132AB3ACEB009310D2 /* TitlePreviewViewController.swift in Sources */,
 				062EFEDC2AABC8E7009310D2 /* MainTabBarViewController.swift in Sources */,
 				062EFEFA2AABD79C009310D2 /* CollectionViewTableViewCell.swift in Sources */,
 				062EFF0F2AB0D207009310D2 /* SearchResultsViewController.swift in Sources */,

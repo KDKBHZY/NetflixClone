@@ -39,9 +39,6 @@ class HomeViewController: UIViewController {
         //Customize tableHeader
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
-        APICaller.shared.getMovie(with: "spider") { result in
-            
-        }
     }
     
     private func configureNavBar(){
@@ -54,7 +51,6 @@ class HomeViewController: UIViewController {
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         ]
-        navigationController?.navigationBar.tintColor = .white
     }
     
  
@@ -118,7 +114,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         default:
             return cell
         }
-        
+        cell.delegate = self
         return cell
     }
     
@@ -148,5 +144,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
     }
+    
+}
+
+
+extension HomeViewController:CollectionViewTableViewCellDelegate{
+    func collectionViewTableViewCelldidtab(cell: CollectionViewTableViewCell, viewModel: TitlePreviewModel) {
+        DispatchQueue.main.async {[weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+       
+    }
+    
     
 }
