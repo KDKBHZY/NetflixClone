@@ -81,11 +81,37 @@ extension SearchViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let title = titles[indexPath.row]
+        guard let titleName = title.original_name ?? title.original_title else{return }
+        APICaller.shared.getMovie(with: titleName + " trailer") { [weak self]result in
+            switch result {
+            case .success(let videos):
+                DispatchQueue.main.async{
+                    let vc = TitlePreviewViewController()
+                    vc.configure(with:  TitlePreviewModel(title:titleName, youtubeView: videos, titleOVerview: title.overview!))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+               
+
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
     
 }
 
-extension SearchViewController:UISearchResultsUpdating{
+extension SearchViewController:UISearchResultsUpdating,SearchResultsViewControllerDelegate{
+    func SearchResultsViewControllerDidTapItem(viewModel: TitlePreviewModel) {
+        DispatchQueue.main.async {[weak self] in
+            let vc = TitlePreviewViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         guard let query = searchBar.text,
@@ -94,6 +120,7 @@ extension SearchViewController:UISearchResultsUpdating{
               let resultController = searchController.searchResultsController as? SearchResultsViewController else{
             return
         }
+        resultController.delegate = self
         APICaller.shared.search(with: query) { result in
                 switch result{
                 case .success(let titles):
@@ -104,4 +131,6 @@ extension SearchViewController:UISearchResultsUpdating{
                 }
         }
     }
+    
+     
 }
