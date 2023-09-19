@@ -29,6 +29,8 @@
 		062EFF112AB0F5AE009310D2 /* YoutubeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF102AB0F5AE009310D2 /* YoutubeResponse.swift */; };
 		062EFF132AB3ACEB009310D2 /* TitlePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF122AB3ACEB009310D2 /* TitlePreviewViewController.swift */; };
 		062EFF152AB3B2F1009310D2 /* TitlePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062EFF142AB3B2F1009310D2 /* TitlePreviewViewModel.swift */; };
+		06C1A4792ABA15750042C5C5 /* NetFlixCloneModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06C1A4772ABA15740042C5C5 /* NetFlixCloneModel.xcdatamodeld */; };
+		06C1A47B2ABA17C90042C5C5 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C1A47A2ABA17C90042C5C5 /* DataPersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		062EFF102AB0F5AE009310D2 /* YoutubeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeResponse.swift; sourceTree = "<group>"; };
 		062EFF122AB3ACEB009310D2 /* TitlePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewController.swift; sourceTree = "<group>"; };
 		062EFF142AB3B2F1009310D2 /* TitlePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlePreviewViewModel.swift; sourceTree = "<group>"; };
+		06C1A4782ABA15750042C5C5 /* NetFlixCloneModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NetFlixCloneModel.xcdatamodel; sourceTree = "<group>"; };
+		06C1A47A2ABA17C90042C5C5 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 				062EFEE02AABC8E9009310D2 /* Assets.xcassets */,
 				062EFEE22AABC8E9009310D2 /* LaunchScreen.storyboard */,
 				062EFEE52AABC8E9009310D2 /* Info.plist */,
+				06C1A4772ABA15740042C5C5 /* NetFlixCloneModel.xcdatamodeld */,
 			);
 			path = NetflixClone;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				062EFEFD2AAD2126009310D2 /* APICaller.swift */,
+				06C1A47A2ABA17C90042C5C5 /* DataPersistenceManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -247,12 +253,14 @@
 				062EFF0F2AB0D207009310D2 /* SearchResultsViewController.swift in Sources */,
 				062EFEFE2AAD2126009310D2 /* APICaller.swift in Sources */,
 				062EFEFC2AACF3EF009310D2 /* HeroHeaderUIView.swift in Sources */,
+				06C1A47B2ABA17C90042C5C5 /* DataPersistenceManager.swift in Sources */,
 				062EFED82AABC8E7009310D2 /* AppDelegate.swift in Sources */,
 				062EFEF32AABCC36009310D2 /* DownloadViewController.swift in Sources */,
 				062EFEEF2AABCBC5009310D2 /* UpComingViewController.swift in Sources */,
 				062EFEDA2AABC8E7009310D2 /* SceneDelegate.swift in Sources */,
 				062EFF042AAFB028009310D2 /* TitleCollectionViewCell.swift in Sources */,
 				062EFF112AB0F5AE009310D2 /* YoutubeResponse.swift in Sources */,
+				06C1A4792ABA15750042C5C5 /* NetFlixCloneModel.xcdatamodeld in Sources */,
 				062EFF0D2AAFCF4B009310D2 /* TitleViewModel.swift in Sources */,
 				062EFF002AAD275C009310D2 /* Title.swift in Sources */,
 				062EFEED2AABCBB6009310D2 /* HomeViewController.swift in Sources */,
@@ -487,6 +495,19 @@
 			productName = SDWebImageMapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		06C1A4772ABA15740042C5C5 /* NetFlixCloneModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				06C1A4782ABA15750042C5C5 /* NetFlixCloneModel.xcdatamodel */,
+			);
+			currentVersion = 06C1A4782ABA15750042C5C5 /* NetFlixCloneModel.xcdatamodel */;
+			path = NetFlixCloneModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 062EFECC2AABC8E7009310D2 /* Project object */;
 }
