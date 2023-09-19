@@ -25,6 +25,9 @@ class DownloadViewController: UIViewController {
         downLoadTable.delegate = self
         downLoadTable.dataSource = self
         fetchLocalStorage()
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("downloaded"), object: nil, queue: nil) { _ in
+            self.fetchLocalStorage()
+        }
     }
     
     private func fetchLocalStorage(){
@@ -80,15 +83,34 @@ extension DownloadViewController:UITableViewDelegate,UITableViewDataSource{
                 case .failure(let err):
                     print(err.localizedDescription)
                 }
-            }
-            self.titles.remove(at: indexPath.row)
+                self?.titles.remove(at: indexPath.row)
 
-            tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+        
         default:
             break;
         }
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let title = titles[indexPath.row]
+        guard let titleName = title.original_name ?? title.original_title else{return }
+        APICaller.shared.getMovie(with: titleName + " trailer") { [weak self]result in
+            switch result {
+            case .success(let videos):
+                DispatchQueue.main.async{
+                    let vc = TitlePreviewViewController()
+                    vc.configure(with:  TitlePreviewModel(title:titleName, youtubeView: videos, titleOVerview: title.overview!))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+               
+
+            case .failure(let err):
+                print(err.localizedDescription)
+            }
+        }
+    }
     
 }
